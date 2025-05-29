@@ -1,12 +1,14 @@
-import React from 'react';
-import SignupForm from './components/SignupForm';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Tentest</h1>
-      <SignupForm />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 
