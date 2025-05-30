@@ -1,13 +1,12 @@
 {
-  "name": "mexican-restaurant",
+  "name": "techwizards-frontend",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "postbuild": "ls -la dist/ && echo 'Build completed, files in dist directory'",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "serve -s dist -l 10000",
     "serve": "serve -s dist"
@@ -15,7 +14,6 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1",
     "serve": "^14.2.0"
   },
   "devDependencies": {
