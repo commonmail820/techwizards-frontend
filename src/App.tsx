@@ -1,95 +1,104 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Homepage from './components/Homepage';
-import SignupForm from './components/SignupForm';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme } from '@mui/material/styles';
+import { THEME, ROUTES } from './config/constants';
+import { AuthProvider } from './contexts/AuthContext';
+import { MenuProvider } from './contexts/MenuContext';
+import Navigation from './components/Navigation';
+import Box from '@mui/material/Box';
 
-const App: React.FC = () => {
+// Import pages
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import AdminDashboard from './pages/AdminDashboard';
+import WorkerDashboard from './pages/WorkerDashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Order from './pages/Order';
+
+// Create MUI theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: THEME.colors.primary,
+    },
+    secondary: {
+      main: THEME.colors.secondary,
+    },
+    background: {
+      default: THEME.colors.background,
+    },
+  },
+  typography: {
+    fontFamily: THEME.fonts.primary,
+    h1: {
+      fontFamily: THEME.fonts.secondary,
+      fontSize: '3.5rem',
+      fontWeight: 600,
+    },
+    h2: {
+      fontFamily: THEME.fonts.secondary,
+      fontSize: '2.5rem',
+      fontWeight: 600,
+    },
+    h3: {
+      fontFamily: THEME.fonts.secondary,
+      fontSize: '2rem',
+      fontWeight: 500,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: 8,
+          padding: '8px 24px',
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: THEME.colors.primary,
+        },
+      },
+    },
+  },
+});
+
+function App() {
   return (
-    <Router>
-      <div className="App">
-        {/* Navigation Bar */}
-        <nav style={{
-          background: '#333',
-          padding: '1rem',
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          zIndex: 1000,
-          boxSizing: 'border-box'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}>
-            <Link to="/" style={{
-              color: '#d4af37',
-              textDecoration: 'none',
-              fontSize: '1.5rem',
-              fontWeight: 'bold'
-            }}>
-              🌮 Mexican Restaurant
-            </Link>
-            <div>
-              <Link to="/" style={{
-                color: 'white',
-                textDecoration: 'none',
-                marginRight: '2rem',
-                fontSize: '1.1rem'
-              }}>
-                Home
-              </Link>
-              <Link to="/signup" style={{
-                color: 'white',
-                textDecoration: 'none',
-                fontSize: '1.1rem'
-              }}>
-                Sign Up
-              </Link>
-            </div>
-          </div>
-        </nav>
-
-        {/* Main Content */}
-        <div style={{ marginTop: '70px' }}>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/signup" element={
-              <div style={{ 
-                padding: '2rem',
-                minHeight: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <div style={{
-                  background: 'white',
-                  borderRadius: '10px',
-                  padding: '2rem',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-                  maxWidth: '500px',
-                  width: '100%'
-                }}>
-                  <h1 style={{ 
-                    textAlign: 'center', 
-                    marginBottom: '2rem',
-                    color: '#333'
-                  }}>
-                    Join Our Restaurant Family
-                  </h1>
-                  <SignupForm />
-                </div>
-              </div>
-            } />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AuthProvider>
+        <MenuProvider>
+          <Router>
+            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+              <Navigation />
+              <Box component="main" sx={{ flexGrow: 1 }}>
+                <Routes>
+                  <Route path={ROUTES.HOME} element={<Home />} />
+                  <Route path={ROUTES.MENU} element={<Menu />} />
+                  <Route path={ROUTES.LOGIN} element={<Login />} />
+                  <Route path={ROUTES.REGISTER} element={<SignUp />} />
+                  <Route path={ROUTES.ADMIN_DASHBOARD} element={<AdminDashboard />} />
+                  <Route path={ROUTES.WORKER_DASHBOARD} element={<WorkerDashboard />} />
+                  <Route path={ROUTES.ABOUT} element={<About />} />
+                  <Route path={ROUTES.CONTACT} element={<Contact />} />
+                  <Route path={ROUTES.ORDER} element={<Order />} />
+                  <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
+                </Routes>
+              </Box>
+            </Box>
+          </Router>
+        </MenuProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
-};
+}
 
-export default App; 
+export default App;
