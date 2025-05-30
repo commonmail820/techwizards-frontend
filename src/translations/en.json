@@ -1,0 +1,158 @@
+{
+  "navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "home": {
+    "hero": {
+      "title": "Authentic Mexican Cuisine",
+      "subtitle": "Experience the flavors of Mexico in every bite",
+      "cta": "View Menu"
+    },
+    "features": {
+      "freshIngredients": {
+        "title": "Fresh Ingredients",
+        "description": "We use only the freshest ingredients, sourced locally and imported from Mexico."
+      },
+      "traditionalRecipes": {
+        "title": "Traditional Recipes",
+        "description": "Our recipes have been passed down through generations of Mexican families."
+      },
+      "authenticExperience": {
+        "title": "Authentic Experience",
+        "description": "Immerse yourself in Mexican culture with our authentic atmosphere and service."
+      }
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "categories": {
+      "appetizers": "Appetizers",
+      "mainCourses": "Main Courses",
+      "desserts": "Desserts",
+      "beverages": "Beverages"
+    },
+    "items": {
+      "search": "Search menu items...",
+      "notFound": "No menu items found",
+      "price": "Price",
+      "spicyLabel": "Spicy",
+      "vegetarianLabel": "Vegetarian",
+      "popularLabel": "Popular"
+    },
+    "filters": {
+      "title": "Filters",
+      "all": "All",
+      "spicy": "Spicy",
+      "vegetarian": "Vegetarian",
+      "popular": "Popular"
+    }
+  },
+  "about": {
+    "title": "Our Story",
+    "subtitle": "Authentic Mexican Cuisine",
+    "story": {
+      "part1": "Founded in 2020, our restaurant brings the authentic flavors of Mexico to your table. Our recipes have been passed down through generations, preserving the traditional cooking methods and ingredients that make Mexican cuisine so special.",
+      "part2": "Each dish is carefully prepared by our skilled chefs who have years of experience in traditional Mexican cooking. We source our ingredients from local suppliers and import special ingredients directly from Mexico to ensure the most authentic taste."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": {
+        "title": "Quality",
+        "description": "We use only the finest ingredients to create our authentic dishes."
+      },
+      "tradition": {
+        "title": "Tradition",
+        "description": "Our recipes preserve the rich culinary heritage of Mexico."
+      },
+      "community": {
+        "title": "Community",
+        "description": "We create a welcoming space for families and friends to gather."
+      }
+    },
+    "visit": {
+      "title": "Visit Us",
+      "address": "123 Mexican Street, Foodie District",
+      "hours": "Open Tuesday - Sunday",
+      "time": "11:00 AM - 10:00 PM"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you",
+    "form": {
+      "title": "Send us a Message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "required": "Required field",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Hours",
+      "follow": "Follow Us"
+    },
+    "location": {
+      "title": "Our Location",
+      "viewMap": "View on Google Maps"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "form": {
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login",
+      "error": "Invalid username or password"
+    },
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?"
+  },
+  "dashboard": {
+    "admin": {
+      "title": "Admin Dashboard",
+      "orders": "Orders",
+      "users": "Users",
+      "menu": "Menu Management",
+      "settings": "Settings"
+    },
+    "worker": {
+      "title": "Worker Dashboard",
+      "orders": "Current Orders",
+      "completed": "Completed Orders",
+      "profile": "My Profile"
+    }
+  },
+  "order": {
+    "title": "Place Your Order",
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty",
+      "total": "Total",
+      "checkout": "Proceed to Checkout"
+    },
+    "delivery": {
+      "title": "Delivery Information",
+      "address": "Delivery Address",
+      "instructions": "Special Instructions"
+    }
+  },
+  "language": {
+    "select": "Select Language",
+    "en": "English",
+    "es": "Spanish"
+  }
+} 
