@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "postbuild": "ls -la dist/",
+    "postbuild": "ls -la dist/ && echo 'Build completed, files in dist directory'",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "serve -s dist -p $PORT"
+    "start": "serve -s dist -l 10000",
+    "serve": "serve -s dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
