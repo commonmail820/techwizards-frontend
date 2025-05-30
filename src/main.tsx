@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
 
-// import App from './App';
+// Commented out for testing:
 // import '@fontsource/roboto/300.css';
 // import '@fontsource/roboto/400.css';
 // import '@fontsource/roboto/500.css';
@@ -11,9 +12,16 @@ import ReactDOM from 'react-dom/client';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <h1>Hello World - TechWizards Frontend Test</h1>
+    <App />
   </React.StrictMode>,
 );
+
+// Hello World test (commented out):
+// ReactDOM.createRoot(document.getElementById('root')!).render(
+//   <React.StrictMode>
+//     <h1>Hello World - TechWizards Frontend Test</h1>
+//   </React.StrictMode>,
+// );
 
 // Original code commented out:
 // ReactDOM.createRoot(document.getElementById('root')!).render(
