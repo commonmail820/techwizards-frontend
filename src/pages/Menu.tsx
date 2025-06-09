@@ -4,29 +4,28 @@ import {
   Box,
   Container,
   Grid,
-  Card,
-  CardMedia,
-  CardContent,
   Typography,
-  Button,
   TextField,
   ToggleButton,
   ToggleButtonGroup,
   CircularProgress,
   Alert,
+  Chip,
+  Stack,
+  Snackbar,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ROUTES } from '../config/constants';
 import { useMenu } from '../contexts/MenuContext';
+import MenuItemCard from '../components/MenuItemCard';
 import type { MenuItem } from '../types/menu';
 
 const Menu = () => {
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
   const { items, loading, error } = useMenu();
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   const handleFilterChange = (event: React.MouseEvent<HTMLElement>, newFilter: string) => {
     if (newFilter !== null) {
@@ -54,8 +53,17 @@ const Menu = () => {
     return matchesSearch && matchesFilter && item.isAvailable;
   });
 
-  const handleOrder = (itemId: number) => {
-    navigate(`${ROUTES.ORDER}?item=${itemId}`);
+  const handleAddToCart = (item: MenuItem, quantity: number, spiceLevel: number) => {
+    // For now, just show a success message
+    // Later this will integrate with a cart context/service
+    const itemName = getLocalizedName(item);
+    setSnackbarMessage(
+      `${quantity}x ${itemName} ${t('menu.addedToCart')} (${t('menu.spice.level')}: ${spiceLevel})`
+    );
+    setSnackbarOpen(true);
+    
+    // TODO: Integrate with cart service
+    console.log('Added to cart:', { item, quantity, spiceLevel });
   };
 
   if (loading) {
@@ -104,67 +112,27 @@ const Menu = () => {
       </Box>
 
       {filteredItems.length === 0 ? (
-        <Typography variant="h6" align="center">
+        <Typography variant="h6" align="center" sx={{ mt: 4 }}>
           {t('menu.items.notFound')}
         </Typography>
       ) : (
         <Grid container spacing={4}>
           {filteredItems.map((item) => (
             <Grid item key={item.id} xs={12} sm={6} md={4}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card>
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    image={item.image}
-                    alt={getLocalizedName(item)}
-                  />
-                  <CardContent>
-                    <Typography variant="h6" component="h3">
-                      {getLocalizedName(item)}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                      {getLocalizedDescription(item)}
-                    </Typography>
-                    <Typography variant="subtitle1" color="text.secondary">
-                      {t('menu.items.price')}: ${item.price.toFixed(2)}
-                    </Typography>
-                    <Box sx={{ mt: 1, mb: 2 }}>
-                      {item.spiceLevel > 1 && (
-                        <Typography variant="caption" sx={{ mr: 1 }}>
-                          🌶️ {t('menu.items.spicyLabel')}
-                        </Typography>
-                      )}
-                      {item.isVegetarian && (
-                        <Typography variant="caption" sx={{ mr: 1 }}>
-                          🥬 {t('menu.items.vegetarianLabel')}
-                        </Typography>
-                      )}
-                      {item.isPopular && (
-                        <Typography variant="caption">
-                          ⭐ {t('menu.items.popularLabel')}
-                        </Typography>
-                      )}
-                    </Box>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleOrder(item.id)}
-                    >
-                      {t('menu.items.orderButton')}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <MenuItemCard item={item} onAddToCart={handleAddToCart} />
             </Grid>
           ))}
         </Grid>
       )}
+
+      {/* Success Snackbar */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackbarOpen(false)}
+        message={snackbarMessage}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      />
     </Container>
   );
 };

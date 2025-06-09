@@ -30,6 +30,7 @@
   },
   "menu": {
     "title": "Our Menu",
+    "addedToCart": "added to cart!",
     "categories": {
       "appetizers": "Appetizers",
       "mainCourses": "Main Courses",
@@ -42,7 +43,9 @@
       "price": "Price",
       "spicyLabel": "Spicy",
       "vegetarianLabel": "Vegetarian",
-      "popularLabel": "Popular"
+      "popularLabel": "Popular",
+      "addToCart": "Add to Cart",
+      "orders": "orders"
     },
     "filters": {
       "title": "Filters",
@@ -50,6 +53,20 @@
       "spicy": "Spicy",
       "vegetarian": "Vegetarian",
       "popular": "Popular"
+    },
+    "spice": {
+      "level": "Spice Level",
+      "none": "No Spice",
+      "mild": "Mild",
+      "medium": "Medium",
+      "hot": "Hot"
+    },
+    "customize": {
+      "title": "Customize Your Order",
+      "quantity": "Quantity",
+      "spiceLevel": "Spice Level",
+      "itemPrice": "Item Price",
+      "total": "Total"
     }
   },
   "about": {
@@ -154,5 +171,12 @@
     "select": "Select Language",
     "en": "English",
     "es": "Spanish"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
   }
 } 

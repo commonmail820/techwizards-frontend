@@ -30,6 +30,7 @@
   },
   "menu": {
     "title": "Nuestro Menú",
+    "addedToCart": "agregado al carrito!",
     "categories": {
       "appetizers": "Entradas",
       "mainCourses": "Platos Principales",
@@ -42,7 +43,9 @@
       "price": "Precio",
       "spicyLabel": "Picante",
       "vegetarianLabel": "Vegetariano",
-      "popularLabel": "Popular"
+      "popularLabel": "Popular",
+      "addToCart": "Agregar al Carrito",
+      "orders": "pedidos"
     },
     "filters": {
       "title": "Filtros",
@@ -50,6 +53,20 @@
       "spicy": "Picante",
       "vegetarian": "Vegetariano",
       "popular": "Popular"
+    },
+    "spice": {
+      "level": "Nivel de Picante",
+      "none": "Sin Picante",
+      "mild": "Suave",
+      "medium": "Medio",
+      "hot": "Picante"
+    },
+    "customize": {
+      "title": "Personaliza tu Pedido",
+      "quantity": "Cantidad",
+      "spiceLevel": "Nivel de Picante",
+      "itemPrice": "Precio del Artículo",
+      "total": "Total"
     }
   },
   "about": {
@@ -154,5 +171,12 @@
     "select": "Seleccionar Idioma",
     "en": "Inglés",
     "es": "Español"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar"
   }
 } 
